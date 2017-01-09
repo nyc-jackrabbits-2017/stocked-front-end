@@ -3,15 +3,15 @@ class Logout extends React.Component {
     event.preventDefault();
     }
 
-    $.ajax({
-       url: 'sessions/:id',
-       method: 'delete',
-       data: {
-         authenticity_token: Functions.getMetaContent("csrf-token")
-       }
-    }).done(function() {
-
-    });
+    // $.ajax({
+    //    url: 'sessions/:id',
+    //    method: 'delete',
+    //    data: {
+    //      authenticity_token: Functions.getMetaContent("csrf-token")
+    //    }
+    // }).done(function() {
+    //
+    // });
 
   render() {
     return (

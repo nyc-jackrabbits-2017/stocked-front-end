@@ -3,6 +3,7 @@ class IndexPage extends React.Component {
     return(
       <div>
         <Header />
+        <PieCharts />
         <NavBar />
         <StockTimeline />
       </div>

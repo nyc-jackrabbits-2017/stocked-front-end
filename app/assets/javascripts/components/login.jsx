@@ -5,21 +5,21 @@ class Login extends React.Component {
     const password = this.refs.password;
     }
 
-    $.ajax({
-       url: 'sessions/new',
-       method: 'post',
-       data: {
-         user: {
-           email: this.email.value,
-           password: this.password.value
-        },
-        authenticity_token: Functions.getMetaContent("csrf-token")
-      }
-
-    }).done(function(response) {
-
-    }.bind(this));
-  }
+  //   $.ajax({
+  //      url: 'sessions/new',
+  //      method: 'post',
+  //      data: {
+  //        user: {
+  //          email: this.email.value,
+  //          password: this.password.value
+  //       },
+  //       authenticity_token: Functions.getMetaContent("csrf-token")
+  //     }
+  //
+  //   }).done(function(response) {
+  //
+  //   }.bind(this));
+  // }
 
 render() {
   return(
