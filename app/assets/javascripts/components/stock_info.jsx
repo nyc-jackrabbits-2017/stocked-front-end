@@ -1,11 +1,23 @@
 class StockInfo extends React.Component {
+  // constructor() {
+  //   super()
+  // }
+  // componentDidMount() {
+  //   let path = window.location.pathname
+  //   $.ajax({
+  //     url: path+".json"
+  //   })
+  //   .done(response => {
+  //     this.setState......
+  //   }.bind(this))
+  }
   render() {
     const response = {
   symbol: "$FB",
   full_name: "Facebook inc.",
   current_value: 1252.2,
   amount_shares: 10,
-  cost_basis: 1301.0
+  cost_basis: 1101.0
 }
     let ProfitOrLossColor;
     let ProfitOrLoss;
@@ -28,12 +40,12 @@ class StockInfo extends React.Component {
         <h2 className="sub-header">Facebook</h2>
         <ul className="list-group col-md-6" >
             <li className="list-group-item">{response.symbol}</li>
-            <li className="list-group-item">Current Value: {response.current_value / response.amount_shares} USD</li>
-            <li className="list-group-item">Current Value in Portfolio: {response.current_value} USD</li>
-            <li className="list-group-item">Number of shares: {response.amount_shares}</li>
-            <li className="list-group-item">Price Purchased: {response.cost_basis / response.amount_shares} USD</li>
-            <li className="list-group-item">Cost Base: {response.cost_basis} USD</li>
-            <li className={`list-group-item ${ProfitOrLossColor}`}>{ProfitOrLoss}: {(response.current_value - response.cost_basis).toFixed(2)} USD</li>
+            <li className="list-group-item">Current Value: <strong className="pull-right">{(response.current_value / response.amount_shares).toFixed(2)} USD </strong></li>
+            <li className="list-group-item">Current Value in Portfolio: <strong className="pull-right">{(response.current_value).toFixed(2)} USD</strong></li>
+            <li className="list-group-item">Number of shares: <strong className="pull-right">{(response.amount_shares)}</strong></li>
+            <li className="list-group-item">Price Purchased: <strong className="pull-right">{(response.cost_basis / response.amount_shares).toFixed(2)} USD</strong></li>
+            <li className="list-group-item">Cost Base: <strong className="pull-right">{response.cost_basis.toFixed(2)} USD</strong></li>
+            <li className={`list-group-item ${ProfitOrLossColor}`}>{ProfitOrLoss}: <strong className="pull-right">{(response.current_value - response.cost_basis).toFixed(2)} USD</strong></li>
         </ul>
         <h2 className="col-md-2">  </h2>
         <h3 className={ArrowColor}><span className={Arrow}></span> {(((response.current_value / response.cost_basis) - 1) * 100).toFixed(2)} %</h3>
