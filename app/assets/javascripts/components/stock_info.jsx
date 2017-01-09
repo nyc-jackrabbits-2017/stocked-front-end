@@ -40,12 +40,12 @@ class StockInfo extends React.Component {
         <h2 className="sub-header">Facebook</h2>
         <ul className="list-group col-md-6" >
             <li className="list-group-item">{response.symbol}</li>
-            <li className="list-group-item">Current Value: <strong className="pull-right">{(response.current_value / response.amount_shares).toFixed(2)} USD </strong></li>
-            <li className="list-group-item">Current Value in Portfolio: <strong className="pull-right">{(response.current_value).toFixed(2)} USD</strong></li>
-            <li className="list-group-item">Number of shares: <strong className="pull-right">{(response.amount_shares)}</strong></li>
-            <li className="list-group-item">Price Purchased: <strong className="pull-right">{(response.cost_basis / response.amount_shares).toFixed(2)} USD</strong></li>
-            <li className="list-group-item">Cost Base: <strong className="pull-right">{response.cost_basis.toFixed(2)} USD</strong></li>
-            <li className={`list-group-item ${ProfitOrLossColor}`}>{ProfitOrLoss}: <strong className="pull-right">{(response.current_value - response.cost_basis).toFixed(2)} USD</strong></li>
+            <li className="list-group-item">Current Value: <strong className="pull-right">$ {(response.current_value / response.amount_shares).toFixed(2)}</strong></li>
+            <li className="list-group-item">Current Value in Portfolio: <strong className="pull-right">$ {(response.current_value).toFixed(2)}</strong></li>
+            <li className="list-group-item">Number of shares: <strong className="pull-right"> {(response.amount_shares)}</strong></li>
+            <li className="list-group-item">Price Purchased: <strong className="pull-right">$ {(response.cost_basis / response.amount_shares).toFixed(2)}</strong></li>
+            <li className="list-group-item">Cost Base: <strong className="pull-right">$ {response.cost_basis.toFixed(2)}</strong></li>
+            <li className={`list-group-item ${ProfitOrLossColor}`}>{ProfitOrLoss}: <strong className="pull-right">$ {(response.current_value - response.cost_basis).toFixed(2)}</strong></li>
         </ul>
         <h2 className="col-md-2">  </h2>
         <h3 className={ArrowColor}><span className={Arrow}></span> {(((response.current_value / response.cost_basis) - 1) * 100).toFixed(2)} %</h3>
