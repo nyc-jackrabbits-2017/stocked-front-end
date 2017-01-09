@@ -38,6 +38,24 @@ class StockTimeline extends React.Component {
 
     return(
               <div>
+                <h2 className="sub-header">Portfolio Performance</h2>
+                <div className="table-responsive">
+                  <table className="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Portfolio Cat.</th>
+                        <th>Shares </th>
+                        <th>Purchased Price</th>
+                        <th>Current Price</th>
+                        <th>P & L</th>
+                        <th> % </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <Portfolio stock={stocks}/>
+                    </tbody>
+                  </table>
+                </div>
                 <h2 className="sub-header">Stock Positions</h2>
                 <div className="table-responsive">
                   <table className="table table-striped">
@@ -48,6 +66,7 @@ class StockTimeline extends React.Component {
                         <th>Purchased Price</th>
                         <th>Current Price</th>
                         <th>P & L</th>
+                        <th> % </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -57,6 +76,7 @@ class StockTimeline extends React.Component {
                     </tbody>
                   </table>
                 </div>
+
               </div>
     )
   }

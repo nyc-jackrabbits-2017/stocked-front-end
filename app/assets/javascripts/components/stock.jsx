@@ -18,11 +18,12 @@ class Stock extends React.Component {
 
       return(
         <tr>
-          <td>{stocksymbol}</td>
+          <td><a href="/stocks/1">{stocksymbol}</a></td>
           <td>{shares}</td>
           <td>$ {purchased_price.toFixed(2)}</td>
           <td>$ {current_price.toFixed(2)}</td>
           <td className={""+this.profitLoss(purchased_price, current_price)+""}>$ {p_l.toFixed(2)}</td>
+          <td className={""+this.profitLoss(purchased_price, current_price)+""}>{(((current_price/purchased_price)-1)*100).toFixed(4)} %</td>
         </tr>
       )
     }
