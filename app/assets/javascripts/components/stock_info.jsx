@@ -10,7 +10,7 @@ class StockInfo extends React.Component {
   //   .done(response => {
   //     this.setState......
   //   }.bind(this))
-  }
+//}
   render() {
     const response = {
   symbol: "$FB",
