@@ -3,22 +3,23 @@ class Login extends React.Component {
     event.preventDefault();
     const email = this.refs.email;
     const password = this.refs.password;
-    console.log(email.value)
-    console.log(password.value)
     }
 
-  //   $.ajax({
-  //      url: 'sessions/new',
-  //      method: 'post',
+    $.ajax({
+       url: 'sessions/new',
+       method: 'post',
+       data: {
+         user: {
+           email: this.email.value,
+           password: this.password.value
+        },
+        authenticity_token: Functions.getMetaContent("csrf-token")
+      }
 
-  //      data: {
-  //            email.value
-  //        }
+    }).done(function(response) {
 
-  //   }).done(function(response) {
-
-  //   }.bind(this));
-  // }
+    }.bind(this));
+  }
 
 render() {
   return(
@@ -31,8 +32,9 @@ render() {
         <label htmlFor="pwd">Password:</label>
         <input type="password" className="form-control" id="pwd" ref="password"/>
       </div>
-      <button type="submit" className="btn btn-default">Submit</button>
+      <button type="submit" className="btn btn-default">Login</button>
    </form>
+
    )
   }
 }
