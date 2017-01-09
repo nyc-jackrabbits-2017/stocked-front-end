@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'users#index'
+  root to: 'stocks#index'
+  get 'stocks/:id' => 'stocks#show'
 end
