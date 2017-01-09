@@ -12,6 +12,30 @@ class StockTimeline extends React.Component {
 
   render() {
 
+    const stocks= [
+      {
+  			stocksymbol: "FB",
+  			shares: 20,
+  			purchased_price: 2370.2,
+  			current_price: 2378.2,
+        p_l: 8.0
+  		},
+      {
+        stocksymbol: "GOOGL",
+        shares: 10,
+        purchased_price: 8290.9,
+        current_price: 8313.12,
+        p_l: 22.22
+      },
+      {
+        stocksymbol: "AMZN",
+        shares: 12,
+        purchased_price: 9553.56,
+        current_price: 9435.24,
+        p_l: -118.32
+      },
+  	]
+
     return(
               <div>
                 <h2 className="sub-header">Stock Positions</h2>
@@ -20,125 +44,16 @@ class StockTimeline extends React.Component {
                     <thead>
                       <tr>
                         <th>Stock Symbol</th>
-                        <th></th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
+                        <th>Shares </th>
+                        <th>Purchased Price</th>
+                        <th>Current Price</th>
+                        <th>P & L</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                      </tr>
-                      <tr>
-                        <td>1,002</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                      </tr>
-                      <tr>
-                        <td>1,003</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                      </tr>
-                      <tr>
-                        <td>1,003</td>
-                        <td>libero</td>
-                        <td>Sed</td>
-                        <td>cursus</td>
-                        <td>ante</td>
-                      </tr>
-                      <tr>
-                        <td>1,004</td>
-                        <td>dapibus</td>
-                        <td>diam</td>
-                        <td>Sed</td>
-                        <td>nisi</td>
-                      </tr>
-                      <tr>
-                        <td>1,005</td>
-                        <td>Nulla</td>
-                        <td>quis</td>
-                        <td>sem</td>
-                        <td>at</td>
-                      </tr>
-                      <tr>
-                        <td>1,006</td>
-                        <td>nibh</td>
-                        <td>elementum</td>
-                        <td>imperdiet</td>
-                        <td>Duis</td>
-                      </tr>
-                      <tr>
-                        <td>1,007</td>
-                        <td>sagittis</td>
-                        <td>ipsum</td>
-                        <td>Praesent</td>
-                        <td>mauris</td>
-                      </tr>
-                      <tr>
-                        <td>1,008</td>
-                        <td>Fusce</td>
-                        <td>nec</td>
-                        <td>tellus</td>
-                        <td>sed</td>
-                      </tr>
-                      <tr>
-                        <td>1,009</td>
-                        <td>augue</td>
-                        <td>semper</td>
-                        <td>porta</td>
-                        <td>Mauris</td>
-                      </tr>
-                      <tr>
-                        <td>1,010</td>
-                        <td>massa</td>
-                        <td>Vestibulum</td>
-                        <td>lacinia</td>
-                        <td>arcu</td>
-                      </tr>
-                      <tr>
-                        <td>1,011</td>
-                        <td>eget</td>
-                        <td>nulla</td>
-                        <td>Class</td>
-                        <td>aptent</td>
-                      </tr>
-                      <tr>
-                        <td>1,012</td>
-                        <td>taciti</td>
-                        <td>sociosqu</td>
-                        <td>ad</td>
-                        <td>litora</td>
-                      </tr>
-                      <tr>
-                        <td>1,013</td>
-                        <td>torquent</td>
-                        <td>per</td>
-                        <td>conubia</td>
-                        <td>nostra</td>
-                      </tr>
-                      <tr>
-                        <td>1,014</td>
-                        <td>per</td>
-                        <td>inceptos</td>
-                        <td>himenaeos</td>
-                        <td>Curabitur</td>
-                      </tr>
-                      <tr>
-                        <td>1,015</td>
-                        <td>sodales</td>
-                        <td>ligula</td>
-                        <td>in</td>
-                        <td>libero</td>
-                      </tr>
+                      {stocks.map((stock, i) =>
+                        <Stock stock={stock} key={i}/>
+                      )}
                     </tbody>
                   </table>
                 </div>
