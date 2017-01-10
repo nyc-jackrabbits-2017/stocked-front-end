@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 /*
  * Base structure
  */
@@ -105,4 +106,17 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+.container {
+  margin-top: 150px;
+  margin-right: 380px;
+  text-align: center;
+  width: 800px;
+  height: 800px;
+}
+
+.btn {
+    background-color: #428bca;
+    border-color: #428bca;
 }
