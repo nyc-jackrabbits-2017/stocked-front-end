@@ -38,7 +38,6 @@ class StockTimeline extends React.Component {
 
     return(
               <div>
-                <PieCharts />
                 <h2 className="sub-header">Portfolio Performance</h2>
                 <div className="table-responsive">
                   <table className="table table-striped">

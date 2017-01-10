@@ -8,7 +8,7 @@ class Pie extends React.Component {
     ],
     datasets: [
         {
-            data: [300, 50, 100],
+            data: [20, 10, 12],
             backgroundColor: [
                 "#FF6384",
                 "#36A2EB",
