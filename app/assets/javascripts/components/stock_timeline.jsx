@@ -47,7 +47,7 @@ class StockTimeline extends React.Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {/* <Portfolio stock={this.state.stocks}/> */}
+                      {<Portfolio stock={this.state.stocks}/>}
                     </tbody>
                   </table>
                 </div>
