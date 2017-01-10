@@ -6,6 +6,7 @@ class IndexPage extends React.Component {
         <Charts />
         <NavBar />
         <StockTimeline />
+        <PurchaseStock />
       </div>
     )
   }
