@@ -1,0 +1,15 @@
+current directory: /Users/emilygottlieb/Desktop/DBC/phase3/stocked-front-end/vendor/bundle/gems/websocket-driver-0.6.4/ext/websocket-driver
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20170110-29078-5u3j2t.rb extconf.rb
+creating Makefile
+
+current directory: /Users/emilygottlieb/Desktop/DBC/phase3/stocked-front-end/vendor/bundle/gems/websocket-driver-0.6.4/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/emilygottlieb/Desktop/DBC/phase3/stocked-front-end/vendor/bundle/gems/websocket-driver-0.6.4/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/emilygottlieb/Desktop/DBC/phase3/stocked-front-end/vendor/bundle/gems/websocket-driver-0.6.4/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20170110-29078-1xshyz3

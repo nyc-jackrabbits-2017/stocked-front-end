@@ -29,6 +29,7 @@ class StockInfo extends React.Component {
       url:"http://stocked-back.herokuapp.com/users/1/purchased_stocks/1",
       dataType: 'json'
     }).done(this.getData)
+    console.log("hello")
   }
 
   render() {
@@ -41,7 +42,7 @@ class StockInfo extends React.Component {
     let ProfitOrLoss;
     let Arrow;
     let ArrowColor
-    if ((cost_basis - total_current_price) > 0) {
+    if ((cost_basis - total_current_price) < 0) {
       ProfitOrLossColor = "list-group-item-success",
       ProfitOrLoss = "Profit",
       Arrow = "glyphicon glyphicon-arrow-up",
@@ -54,7 +55,6 @@ class StockInfo extends React.Component {
       ArrowColor = "text-danger"
     }
 
-
     return(
       <div>
         <h2 className="sub-header">{company_name}</h2>
@@ -64,7 +64,7 @@ class StockInfo extends React.Component {
             <li className="list-group-item">Current Value in Portfolio: <strong className="pull-right">$ {(total_current_price).toFixed(2)}</strong></li>
             <li className="list-group-item">Number of shares: <strong className="pull-right"> {quantity}</strong></li>
             <li className="list-group-item">Price Purchased: <strong className="pull-right">$ {purchase_price}</strong></li>
-            <li className="list-group-item">Cost Base: <strong className="pull-right">$ {cost_basis}</strong></li>
+            <li className="list-group-item">Cost Base: <strong className="pull-right">$ {parseFloat(cost_basis).toFixed(2)}</strong></li>
             <li className={`list-group-item ${ProfitOrLossColor}`}>{ProfitOrLoss}: <strong className="pull-right">$ {(total_current_price - cost_basis).toFixed(2)}</strong></li>
         </ul>
         <h2 className="col-md-2">  </h2>
