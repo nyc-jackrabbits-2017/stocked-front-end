@@ -15,6 +15,7 @@ class StockInfo extends React.Component {
       dataType: 'json'
     }).done(this.getData)
     setInterval(this.updateData, 3000)
+
   }
 
   getData(response){
@@ -28,6 +29,7 @@ class StockInfo extends React.Component {
       url:"http://stocked-back.herokuapp.com/users/1/purchased_stocks/1",
       dataType: 'json'
     }).done(this.getData)
+    console.log("hello")
   }
 
   render() {
