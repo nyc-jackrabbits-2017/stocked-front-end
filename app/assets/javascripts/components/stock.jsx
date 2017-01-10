@@ -5,8 +5,8 @@ class Stock extends React.Component {
     this.profitLoss = this.profitLoss.bind(this)
   }
 
-        profitLoss(purchasedPrice, currentPrice) {
-          if(purchasedPrice - currentPrice < 0){
+        profitLoss(currentPrice, purchasedPrice) {
+          if(currentPrice - purchasedPrice < 0){
             return "text-success"
           }else {
             return "text-danger"
@@ -14,16 +14,17 @@ class Stock extends React.Component {
         }
 
     render() {
-      let {stocksymbol, shares, purchased_price, current_price, p_l} = this.props.stock;
 
+      let { stock_symbol, quantity, purchase_price, cost_basis, ask, last_trade_price } = this.props.stock
+      let total_current_price = (parseFloat(last_trade_price) * quantity)
       return(
         <tr>
-          <td><a href="/stocks/1">{stocksymbol}</a></td>
-          <td>{shares}</td>
-          <td>$ {purchased_price.toFixed(2)}</td>
-          <td>$ {current_price.toFixed(2)}</td>
-          <td className={""+this.profitLoss(purchased_price, current_price)+""}>$ {p_l.toFixed(2)}</td>
-          <td className={""+this.profitLoss(purchased_price, current_price)+""}>{(((current_price/purchased_price)-1)*100).toFixed(4)} %</td>
+          <td><a href="/stocks/1">{stock_symbol}</a></td>
+          <td>{quantity}</td>
+          <td>$ {cost_basis.toFixed(2)}</td>
+          <td>$ {total_current_price.toFixed(2)}</td>
+          <td className={""+this.profitLoss(cost_basis, total_current_price)+""}>$ {(total_current_price - cost_basis).toFixed(2)}</td>
+          <td className={""+this.profitLoss(cost_basis, total_current_price)+""}>{(((total_current_price/cost_basis)-1)*100).toFixed(4)} %</td>
         </tr>
       )
     }
