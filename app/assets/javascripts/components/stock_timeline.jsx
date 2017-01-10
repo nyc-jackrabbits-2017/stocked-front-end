@@ -8,9 +8,7 @@ class StockTimeline extends React.Component {
     this.updateData = this.updateData.bind(this)
     this.getData = this.getData.bind(this)
   }
-
   componentDidMount(){
-
     $.ajax({
       url: 'http://stocked-back.herokuapp.com/users/1/purchased_stocks',
       dataType: 'json'

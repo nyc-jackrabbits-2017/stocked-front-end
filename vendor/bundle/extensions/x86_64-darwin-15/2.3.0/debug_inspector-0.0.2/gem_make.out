@@ -1,0 +1,15 @@
+current directory: /Users/emilygottlieb/Desktop/DBC/phase3/stocked-front-end/vendor/bundle/gems/debug_inspector-0.0.2/ext/debug_inspector
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20170110-29078-fy0x2o.rb extconf.rb
+creating Makefile
+
+current directory: /Users/emilygottlieb/Desktop/DBC/phase3/stocked-front-end/vendor/bundle/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/emilygottlieb/Desktop/DBC/phase3/stocked-front-end/vendor/bundle/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/emilygottlieb/Desktop/DBC/phase3/stocked-front-end/vendor/bundle/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20170110-29078-k3ozav
