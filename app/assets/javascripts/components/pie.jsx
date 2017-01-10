@@ -32,8 +32,7 @@ class Pie extends React.Component {
   render() {
 
     return(
-      <canvas id={this.props.name}>
-      </canvas>
+      <canvas id={this.props.name}></canvas>
     )
 
   }

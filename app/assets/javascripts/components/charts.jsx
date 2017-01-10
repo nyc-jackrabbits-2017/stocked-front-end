@@ -4,24 +4,14 @@ class Charts extends React.Component {
       <div>
         <h1 className="page-header">Dashboard</h1>
         <div className="row placeholders">
-          <div className="col-xs-6 col-sm-3 placeholder">
-            <Pie name="Portfolio1" />
+          <div className="col-xs-4 col-sm-4 placeholder">
+            <Pie name="PortfolioShares" />
             <h4>Portfolio Shares</h4>
             <span className="text-muted">Something else</span>
           </div>
-          <div className="col-xs-6 col-sm-3 placeholder">
-            <Pie name="Portfolio2"/>
-            <h4>Positions Price</h4>
-            <span className="text-muted">Something else</span>
-          </div>
-          <div className="col-xs-6 col-sm-3 placeholder">
-            <Pie name="Portfolio3"/>
-            <h4>Label</h4>
-            <span className="text-muted">Something else</span>
-          </div>
-          <div className="col-xs-6 col-sm-3 placeholder">
-            <Pie name="Portfolio4" />
-            <h4>Label</h4>
+          <div className="col-xs-8 col-sm-8 placeholder">
+            <Line name="PortfolioHistory"/>
+            <h4>Portfolio History</h4>
             <span className="text-muted">Something else</span>
           </div>
         </div>
