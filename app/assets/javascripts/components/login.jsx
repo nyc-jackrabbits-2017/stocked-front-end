@@ -23,39 +23,39 @@ class Login extends React.Component {
 
 render() {
   return(
-  <div class="container">
-  <form onSubmit={this.handleSubmit} class="well form-horizontal" action=" " method="post"  id="contact_form">
+  <div className="container">
+  <form onSubmit={this.handleSubmit} className="well form-horizontal" action=" " method="post"  id="contact_form">
     <fieldset>
 
     <legend>Login</legend>
     <br/>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label">E-Mail</label>  
-          <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-             <input name="email" placeholder="E-Mail Address" class="form-control"  type="email" ref="email"/>
+      <div className="form-group">
+        <label className="col-md-4 control-label">E-Mail</label>  
+          <div className="col-md-4 inputGroupContainer">
+          <div className="input-group">
+              <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
+             <input name="email" placeholder="E-Mail Address" className="form-control"  type="email" ref="email"/>
           </div>
         </div>
       </div>
       <br/>
          
-      <div class="form-group">
-        <label class="col-md-4 control-label">Password</label>  
-          <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input name="password" placeholder="Password" class="form-control"  type="password" ref="password"/>
+      <div className="form-group">
+        <label className="col-md-4 control-label">Password</label>  
+          <div className="col-md-4 inputGroupContainer">
+          <div className="input-group">
+              <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
+              <input name="password" placeholder="Password" className="form-control"  type="password" ref="password"/>
           </div>
       </div>
       </div>
       <br/>
 
       <div class="form-group">
-        <label class="col-md-4 control-label"></label>
-        <div class="col-md-4">
-          <button type="submit" class="btn btn-warning" >Login <span class="glyphicon glyphicon-log-in"></span></button>
+        <label className="col-md-4 control-label"></label>
+        <div className="col-md-4">
+          <button type="submit" className="btn btn-warning" >Login <span className="glyphicon glyphicon-log-in"></span></button>
         </div>
       </div>
 
