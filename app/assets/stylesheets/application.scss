@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 /*
  * Base structure
  */
@@ -105,12 +106,4 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
-}
-
-.arc text {
-  text-anchor: middle;
-}
-
-.arc path {
-  stroke: #fff;
 }
