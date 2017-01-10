@@ -23,7 +23,6 @@ class StockTimeline extends React.Component {
     this.setState({
       stocks: response.purchased_stocks
     })
-    console.log(response)
   }
 
   updateData(){
@@ -31,8 +30,6 @@ class StockTimeline extends React.Component {
       url:"http://stocked-back.herokuapp.com/users/1/purchased_stocks",
       dataType: 'json'
     }).done(this.getData)
-
-    console.log("hello")
   }
 
   render() {
