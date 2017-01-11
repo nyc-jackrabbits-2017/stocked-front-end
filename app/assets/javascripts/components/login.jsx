@@ -4,7 +4,7 @@ class Login extends React.Component {
     event.preventDefault();
     const email = this.refs.email;
     const password = this.refs.password;
-    
+
     $.ajax({
        url: 'http://stocked-back.herokuapp.com/api/sessions',
        method: 'post',
@@ -18,7 +18,8 @@ class Login extends React.Component {
     }).done(function(token) {
       localStorage.setItem("token", token.auth_token)
       localStorage.setItem("user_id", token.id)
-      location.href = "http://localhost:3000"
+      // location.href = "http://stocked-front-end.herokuapp.com/profile"
+      location.href = "/profile"
     }.bind(this))
   }
 

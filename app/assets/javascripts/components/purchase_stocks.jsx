@@ -20,7 +20,7 @@ class PurchaseStock extends React.Component {
     console.log($("#stock-price-input").val())
 
     $.ajax({
-      url: 'http://stocked-back.herokuapp.com/api/users/1/purchased_stocks',
+      url: "http://stocked-back.herokuapp.com/api/users/"+window.localStorage.user_id+"/purchased_stocks",
       method: 'POST',
       data: {
         purchased_stock: {
