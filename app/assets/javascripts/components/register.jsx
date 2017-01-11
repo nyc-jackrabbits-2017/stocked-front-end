@@ -1,27 +1,28 @@
 class Register extends React.Component {
+
   handleSubmit(event) {
         event.preventDefault();
         const email = this.refs.email;
         const password = this.refs.password;
-}
-  //   $.ajax({
-  //      url: 'users/new',
-  //      method: 'post',
-  //      data: {
-  //          user: {
-  //            email: this.email.value,
-                // password: this.password.value
-  //          }
-  //        }
-  //   }).done(function(response) {
-  //
-  //   }.bind(this));
-  // }
+
+    $.ajax({
+       url: 'http://stocked-back.herokuapp.com/api/users',
+       method: 'post',
+       data: {
+           user: {
+             email: this.email.value,
+                password: this.password.value
+           }
+         }
+    }).done(function(response) {
+  
+    }.bind(this));
+  }
 
 render() {
   return(
   <div className="container">
-  <form onSubmit={this.handleSubmit} className="well form-horizontal" action=" " method="post"  id="contact_form">
+  <form onSubmit={this.handleSubmit} className="well form-horizontal" method="post"  id="contact_form">
     <fieldset>
 
     <legend>Create Account</legend>

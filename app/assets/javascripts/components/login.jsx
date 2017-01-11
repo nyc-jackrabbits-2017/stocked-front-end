@@ -1,30 +1,25 @@
 class Login extends React.Component {
+  
   handleSubmit(event) {
     event.preventDefault();
     const email = this.refs.email;
     const password = this.refs.password;
-    }
+    console.log($(event.target).serialize())
+    $.ajax({
+       url: 'http://stocked-back.herokuapp.com/api/sessions',
+       method: 'post',
+       data: $(event.target).serialize(),
+       authenticity_token: Functions.getMetaContent("csrf-token")
+    }).done(function(response) {
+      console.log(response)
+    })
 
-  //   $.ajax({
-  //      url: 'sessions/new',
-  //      method: 'post',
-  //      data: {
-  //        user: {
-  //          email: this.email.value,
-  //          password: this.password.value
-  //       },
-  //       authenticity_token: Functions.getMetaContent("csrf-token")
-  //     }
-  //
-  //   }).done(function(response) {
-  //
-  //   }.bind(this));
-  // }
+  }
 
 render() {
   return(
   <div className="container">
-  <form onSubmit={this.handleSubmit} className="well form-horizontal" action=" " method="post"  id="contact_form">
+  <form onSubmit={this.handleSubmit.bind(this)} className="well form-horizontal" action=" " method="post"  id="contact_form">
     <fieldset>
 
     <legend>Login</legend>
@@ -35,7 +30,7 @@ render() {
           <div className="col-md-4 inputGroupContainer">
           <div className="input-group">
               <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
-             <input name="email" placeholder="E-Mail Address" className="form-control"  type="email" ref="email"/>
+             <input name="session[email]" placeholder="E-Mail Address" className="form-control"  type="email" ref="email"/>
           </div>
         </div>
       </div>
@@ -46,7 +41,7 @@ render() {
           <div className="col-md-4 inputGroupContainer">
           <div className="input-group">
               <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
-              <input name="password" placeholder="Password" className="form-control"  type="password" ref="password"/>
+              <input name="session[password]" placeholder="Password" className="form-control"  type="password" ref="password"/>
           </div>
       </div>
       </div>

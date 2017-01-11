@@ -9,8 +9,8 @@ class Portfolio extends React.Component {
     for (var i = 0; i < this.props.stock.length; i++) {
       let total_current_price = (parseFloat(this.props.stock[i].last_trade_price) * this.props.stock[i].quantity)
       quantity += this.props.stock[i].quantity
-      purchase_price += this.props.stock[i].purchase_price
-      cost_basis += this.props.stock[i].cost_basis
+      purchase_price += this.props.stock[i].cost_basis
+      cost_basis += total_current_price
       profit_loss += total_current_price - this.props.stock[i].cost_basis
       percentage += (((total_current_price/(this.props.stock[i].cost_basis) -1)*100))
     }
