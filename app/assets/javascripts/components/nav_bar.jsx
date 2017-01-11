@@ -2,13 +2,15 @@ class NavBar extends React.Component {
 
   handleClick(e){
     e.preventDefault()
-
-    $.ajax({
-      url: "http://stocked-back.herokuapp.com/api/sessions/"+ window.localStorage.token,
-      type: "DELETE"
-    }).done(function(response){
-      location.href = "/sessions/new"
-    })
+    window.localStorage.token = ""
+    window.localStorage.user_id = ""
+    location.href = "/sessions/new"
+    // $.ajax({
+    //   url: "http://stocked-back.herokuapp.com/api/sessions/"+ window.localStorage.token,
+    //   type: "DELETE"
+    // }).done(function(response){
+    //   location.href = "/sessions/new"
+    // })
   }
 
   render() {

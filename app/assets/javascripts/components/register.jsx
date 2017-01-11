@@ -1,30 +1,26 @@
 class Register extends React.Component {
 
   handleSubmit(event) {
-        event.preventDefault();
-        const email = this.refs.email;
-        const password = this.refs.password;
+        // event.preventDefault();
+        // const email = this.refs.email;
+        // const password = this.refs.password;
+        // const password_conf = this.refs.password_confirmation
 
     $.ajax({
-       url: 'http://stocked-back.herokuapp.com/api/users/new',
+       url: 'http://stocked-back.herokuapp.com/api/users',
        method: 'post',
-       data: {
-           user: {
-              email: email.value,
-              password: password.value
-           }
-         }
+       data: $(event.target).serialize()
     }).done(function(token) {
       localStorage.setItem("token", token.auth_token)
       localStorage.setItem("user_id", token.id)
-      location.href = "http://localhost:3000"
+      location.href = "/profile"
     }.bind(this));
   }
 
 render() {
   return(
   <div className="container">
-  <form onSubmit={this.handleSubmit} className="well form-horizontal"  method="post"  id="contact_form">
+  <form onSubmit={this.handleSubmit.bind(this)} className="well form-horizontal"  method="post"  id="contact_form">
     <fieldset>
 
     <legend>Create Account</legend>
@@ -57,7 +53,7 @@ render() {
           <div className="col-md-4 inputGroupContainer">
           <div className="input-group">
               <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
-              <input name="user[password_confirmation]" placeholder="Password" className="form-control"  type="password" ref="password"/>
+              <input name="user[password_confirmation]" placeholder="Password" className="form-control"  type="password" ref="password_confirmation"/>
           </div>
       </div>
       </div>
