@@ -16,6 +16,22 @@ class PurchaseStock extends React.Component {
 
   handleSubmit(e){
     e.preventDefault
+
+    $.ajax({
+      url: 'http://stocked-back.herokuapp.com/users/1/stocks',
+      method: 'POST',
+      data: {
+            purchase_price: $("#stock-price-input").val(),
+            quantity: $("#stock-quantity-input").val(),
+            stock_symbol: $("#stock-ticker-input").val()
+        }
+      }.done(function(response){
+        $("#stock-ticker-input").val("")
+        $("#stock-quantity-input").val("")
+        $("#stock-price-input").val("")
+      }
+
+    })
   }
 
   handleChange(e){
