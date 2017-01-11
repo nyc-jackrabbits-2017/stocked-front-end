@@ -8,7 +8,7 @@ class Line extends React.Component {
   }
   componentDidMount(){
           $.ajax({
-            url: "http://stocked-back.herokuapp.com/users/1/last_year_portfolio_performance",
+            url: "http://stocked-back.herokuapp.com/api/users/1/last_year_portfolio_performance",
             dataType: 'json',
             method: 'get'
           })
