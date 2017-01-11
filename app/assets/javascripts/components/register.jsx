@@ -15,7 +15,7 @@ class Register extends React.Component {
            }
          }
     }).done(function(response) {
-  
+
     }.bind(this));
   }
 
@@ -29,22 +29,33 @@ render() {
     <br/>
 
       <div className="form-group">
-        <label className="col-md-4 control-label">E-Mail</label>  
+        <label className="col-md-4 control-label">E-Mail</label>
           <div className="col-md-4 inputGroupContainer">
           <div className="input-group">
               <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
-             <input name="email" placeholder="E-Mail Address" className="form-control"  type="email" ref="email"/>
+             <input name="user[email]" placeholder="E-Mail Address" className="form-control"  type="email" ref="email"/>
           </div>
         </div>
       </div>
       <br/>
-         
+
       <div className="form-group">
-        <label className="col-md-4 control-label">Password</label>  
+        <label className="col-md-4 control-label">Password</label>
           <div className="col-md-4 inputGroupContainer">
           <div className="input-group">
               <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
-              <input name="password" placeholder="Password" className="form-control"  type="password" ref="password"/>
+              <input name="user[password]" placeholder="Password" className="form-control"  type="password" ref="password"/>
+          </div>
+      </div>
+      </div>
+      <br/>
+
+      <div className="form-group">
+        <label className="col-md-4 control-label">Password Confirmation</label>
+          <div className="col-md-4 inputGroupContainer">
+          <div className="input-group">
+              <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
+              <input name="user[password_confirmation]" placeholder="Password" className="form-control"  type="password" ref="password"/>
           </div>
       </div>
       </div>
