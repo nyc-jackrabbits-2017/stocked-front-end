@@ -25,13 +25,11 @@ class PurchaseStock extends React.Component {
             quantity: $("#stock-quantity-input").val(),
             stock_symbol: $("#stock-ticker-input").val()
         }
-      }.done(function(response){
+      }).done(function(response){
         $("#stock-ticker-input").val("")
         $("#stock-quantity-input").val("")
         $("#stock-price-input").val("")
-      }
-
-    })
+      })
   }
 
   handleChange(e){
