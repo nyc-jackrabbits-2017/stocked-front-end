@@ -53,61 +53,59 @@ class PurchaseStock extends React.Component {
 
     return(
     <div>
-    <h2 className="sub-header">Purchase Stock</h2>
-      <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-        <div className="form-group row">
-          <form className="form-inline">
-            <label className="col-2 col-form-label">Search Stock Tickers</label>
+      <h2 className="sub-header">Purchase Stock</h2>
+        <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <div className="form-group row">
+            <form className="form-inline">
+              <label className="col-2 col-form-label">Search Stock Tickers</label>
+              <div className="col-10">
+                <input className="form-control" type="search" id="example-search-input"/>
+                <button type="submit" className="btn btn-success" onClick={this.handleSearch.bind(this)}>Search</button>
+              </div>
+            </form>
+          </div>
+
+          <div className="form-group row">
+            <label className="col-2 col-form-label">Stock Ticker</label>
             <div className="col-10">
-              <input className="form-control" type="search" id="example-search-input"/>
-              <button type="submit" className="btn btn-success" onClick={this.handleSearch.bind(this)}>Search</button>
+              <input className="form-control" type="string" id="stock-ticker-input"/>
             </div>
-          </form>
-        </div>
+          </div>
+          <div className="form-group row">
+            <label className="col-2 col-form-label">Quantity</label>
+            <div className="col-10">
+              <input className="form-control" type="integer" id="stock-quantity-input" onChange={this.handleChange.bind(this)}/>
+            </div>
+          </div>
 
-        <div className="form-group row">
-          <label className="col-2 col-form-label">Stock Ticker</label>
-          <div className="col-10">
-            <input className="form-control" type="string" id="stock-ticker-input"/>
+          <div className="form-group row">
+            <label className="col-2 col-form-label">Single Stock Price</label>
+            <div className="col-10">
+              <input className="form-control" type="integer" id="stock-share-input" placeholder="$20.00"/>
+            </div>
           </div>
         </div>
-        <div className="form-group row">
-          <label className="col-2 col-form-label">Quantity</label>
-          <div className="col-10">
-            <input className="form-control" type="integer" id="stock-quantity-input" onChange={this.handleChange.bind(this)}/>
-          </div>
-        </div>
 
-        <div className="form-group row">
-          <label className="col-2 col-form-label">Single Stock Price</label>
-          <div className="col-10">
-            <input className="form-control" type="integer" id="stock-share-input" placeholder="$20.00"/>
-          </div>  
-        </div>        
+        <div className="form-group row form-inline">
+            <label className="col-2 col-form-label">Total Price</label>
+            <div className="col-10">
+              <input className="form-control" type="integer" id="stock-price-input" placeholder="$20.00"/>
+              <button type="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
+            </div>
+          </div>
+
+      <div className="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+        <div className="table-responsive">
+          <table className="table table-striped">
+            <tbody>
+              <tr>
+                <td>{}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
-      <div className="form-group row form-inline">
-          <label className="col-2 col-form-label">Total Price</label>
-          <div className="col-10">
-            <input className="form-control" type="integer" id="stock-price-input" placeholder="$20.00"/>
-            <button type="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
-          </div>  
-        </div>        
-
-          </div>
-
-
-    <div className="col-xs-6 col-sm-8 col-md-8 col-lg-8">
-      <div className="table-responsive">
-        <table className="table table-striped">
-          <tbody>
-            <tr>
-              <td>{}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+  </div>
     )
   }
 }

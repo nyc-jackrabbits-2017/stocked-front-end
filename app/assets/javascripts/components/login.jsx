@@ -4,7 +4,7 @@ class Login extends React.Component {
     event.preventDefault();
     const email = this.refs.email;
     const password = this.refs.password;
-    console.log($(event.target).serialize())
+    
     $.ajax({
        url: 'http://stocked-back.herokuapp.com/api/sessions',
        method: 'post',
