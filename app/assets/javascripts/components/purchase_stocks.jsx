@@ -5,31 +5,35 @@ class PurchaseStock extends React.Component {
     let searchText = $("#example-search-input").val()
 
     $.ajax({
-      url: 'http://stocked-back.herokuapp.com/search/stocks/'+searchText,
+      url: 'http://stocked-back.herokuapp.com/api/search/stocks/'+searchText,
       dataType: 'json'
     }).done(function(response) {
       $("#stock-ticker-input").val(searchText)
-      $("#stock-price-input").val("$"+response.toFixed(2))
+      $("#stock-price-input").val(response.toFixed(2))
+      $("#stock-share-input").val(response.toFixed(2))
       $("#example-search-input").val("")
     })
   }
 
   handleSubmit(e){
     e.preventDefault()
-    console.log($(e.target).serialize())
+    console.log($("#stock-price-input").val())
 
     $.ajax({
-      url: 'http://stocked-back.herokuapp.com/users/1/stocks',
+      url: 'http://stocked-back.herokuapp.com/api/users/1/purchased_stocks',
       method: 'POST',
       data: {
-            purchase_price: $("#stock-price-input").val(),
+        purchased_stock: {
+            purchase_price: $("#stock-share-input").val(),
             quantity: $("#stock-quantity-input").val(),
             stock_symbol: $("#stock-ticker-input").val()
+          }
         }
       }).done(function(response){
         $("#stock-ticker-input").val("")
         $("#stock-quantity-input").val("")
         $("#stock-price-input").val("")
+        $("#stock-share-input").val("")
       })
   }
 
@@ -37,11 +41,11 @@ class PurchaseStock extends React.Component {
     let stockText = $("#stock-ticker-input").val()
 
     $.ajax({
-      url: 'http://stocked-back.herokuapp.com/search/stocks/'+stockText,
+      url: 'http://stocked-back.herokuapp.com/api/search/stocks/'+stockText,
       dataType: 'json'
     }).done(function(response) {
     total_price = $("#stock-quantity-input").val() * response
-    $("#stock-price-input").val("$"+ total_price.toFixed(2))
+    $("#stock-price-input").val(total_price.toFixed(2))
   })
 }
 
@@ -74,14 +78,21 @@ class PurchaseStock extends React.Component {
           </div>
         </div>
 
-        <div className="form-group row form-inline">
-          <label className="col-2 col-form-label">Trading Price</label>
+        <div className="form-group row">
+          <label className="col-2 col-form-label">Single Stock Price</label>
+          <div className="col-10">
+            <input className="form-control" type="integer" id="stock-share-input" placeholder="$20.00"/>
+          </div>  
+        </div>        
+      </div>
+
+      <div className="form-group row form-inline">
+          <label className="col-2 col-form-label">Total Price</label>
           <div className="col-10">
             <input className="form-control" type="integer" id="stock-price-input" placeholder="$20.00"/>
             <button type="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
           </div>  
         </div>        
-      </div>
 
     <div className="col-xs-6 col-sm-8 col-md-8 col-lg-8">
       <div className="table-responsive">
@@ -94,7 +105,7 @@ class PurchaseStock extends React.Component {
         </table>
       </div>
     </div>
-    </div>
+  </div>
     )
   }
 }

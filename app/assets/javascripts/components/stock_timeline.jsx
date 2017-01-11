@@ -10,7 +10,7 @@ class StockTimeline extends React.Component {
   }
   componentDidMount(){
     $.ajax({
-      url: 'http://stocked-back.herokuapp.com/users/1/purchased_stocks',
+      url: 'http://stocked-back.herokuapp.com/api/users/1/purchased_stocks',
       dataType: 'json'
     }).done(this.getData)
     setInterval(this.updateData, 3000)
@@ -25,7 +25,7 @@ class StockTimeline extends React.Component {
 
   updateData(){
     $.ajax({
-      url:"http://stocked-back.herokuapp.com/users/1/purchased_stocks",
+      url:"http://stocked-back.herokuapp.com/api/users/1/purchased_stocks",
       dataType: 'json'
     }).done(this.getData)
   }
