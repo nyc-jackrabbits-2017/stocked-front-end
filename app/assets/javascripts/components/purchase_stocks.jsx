@@ -79,8 +79,8 @@ class PurchaseStock extends React.Component {
           <div className="col-10">
             <input className="form-control" type="integer" id="stock-price-input" placeholder="$20.00"/>
             <button type="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
-          </div>  
-        </div>        
+          </div>
+        </div>
       </div>
 
     <div className="col-xs-6 col-sm-8 col-md-8 col-lg-8">

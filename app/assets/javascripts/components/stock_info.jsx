@@ -11,7 +11,7 @@ class StockInfo extends React.Component {
   componentDidMount() {
     let path = window.location.pathname
     $.ajax({
-      url: "http://stocked-back.herokuapp.com/users/1/purchased_stocks/1",
+      url: "http://stocked-back.herokuapp.com/api/users/1/purchased_stocks/1",
       dataType: 'json'
     }).done(this.getData)
     setInterval(this.updateData, 3000)
@@ -26,7 +26,7 @@ class StockInfo extends React.Component {
 
   updateData(){
     $.ajax({
-      url:"http://stocked-back.herokuapp.com/users/1/purchased_stocks/1",
+      url:"http://stocked-back.herokuapp.com/api/users/1/purchased_stocks/1",
       dataType: 'json'
     }).done(this.getData)
     console.log("hello")
