@@ -22,7 +22,7 @@ class Register extends React.Component {
 render() {
   return(
   <div className="container">
-  <form onSubmit={this.handleSubmit} className="well form-horizontal" method="post"  id="contact_form">
+  <form onSubmit={this.handleSubmit} className="well form-horizontal"  method="post"  id="contact_form">
     <fieldset>
 
     <legend>Create Account</legend>
