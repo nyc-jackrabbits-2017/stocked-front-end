@@ -1,7 +1,7 @@
 class PurchaseStock extends React.Component {
 
   handleSearch(e){
-    e.preventDefault
+    e.preventDefault()
     let searchText = $("#example-search-input").val()
 
     $.ajax({
@@ -15,7 +15,8 @@ class PurchaseStock extends React.Component {
   }
 
   handleSubmit(e){
-    e.preventDefault
+    e.preventDefault()
+    console.log($(e.target).serialize())
 
     $.ajax({
       url: 'http://stocked-back.herokuapp.com/users/1/stocks',
