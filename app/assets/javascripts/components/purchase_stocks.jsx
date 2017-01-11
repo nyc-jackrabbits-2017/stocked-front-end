@@ -9,7 +9,7 @@ class PurchaseStock extends React.Component {
       dataType: 'json'
     }).done(function(response) {
       $("#stock-ticker-input").val(searchText)
-      $("#stock-price-input").val(response)
+      $("#stock-price-input").val("$"+response.toFixed(2))
       $("#example-search-input").val("")
     })
   }
@@ -26,7 +26,7 @@ class PurchaseStock extends React.Component {
       dataType: 'json'
     }).done(function(response) {
     total_price = $("#stock-quantity-input").val() * response
-    $("#stock-price-input").val(total_price)
+    $("#stock-price-input").val("$"+ total_price.toFixed(2))
   })
 }
 
@@ -35,36 +35,50 @@ class PurchaseStock extends React.Component {
     return(
     <div>
     <h2 className="sub-header">Purchase Stock</h2>
+      <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+        <div className="form-group row">
+          <form className="form-inline">
+            <label className="col-2 col-form-label">Search Stock Tickers</label>
+            <div className="col-10">
+              <input className="form-control" type="search" id="example-search-input"/>
+              <button type="submit" className="btn btn-success" onClick={this.handleSearch.bind(this)}>Search</button>
+            </div>
+          </form>
+        </div>
 
-      <div className="form-group row">
-        <label className="col-2 col-form-label">Search Stock Tickers</label>
-        <div className="col-10">
-          <input className="form-control" type="search" id="example-search-input"/>
+        <div className="form-group row">
+          <label className="col-2 col-form-label">Stock Ticker</label>
+          <div className="col-10">
+            <input className="form-control" type="string" id="stock-ticker-input"/>
+          </div>
         </div>
-          <button type="submit" class="btn btn-primary" onClick={this.handleSearch.bind(this)}>Submit</button>
+        <div className="form-group row">
+          <label className="col-2 col-form-label">Quantity</label>
+          <div className="col-10">
+            <input className="form-control" type="integer" id="stock-quantity-input" onChange={this.handleChange.bind(this)}/>
+          </div>
+        </div>
+
+        <div className="form-group row form-inline">
+          <label className="col-2 col-form-label">Trading Price</label>
+          <div className="col-10">
+            <input className="form-control" type="integer" id="stock-price-input" placeholder="$20.00"/>
+            <button type="submit" className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
+          </div>  
+        </div>        
       </div>
 
-    <form>
-      <div className="form-group row">
-        <label className="col-2 col-form-label">Stock</label>
-        <div className="col-10">
-          <input className="form-control" type="string" id="stock-ticker-input"/>
-        </div>
+    <div className="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+      <div className="table-responsive">
+        <table className="table table-striped">
+          <tbody>
+            <tr>
+              <td>{}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div className="form-group row">
-        <label className="col-2 col-form-label">Quantity</label>
-        <div className="col-10">
-          <input className="form-control" type="integer" id="stock-quantity-input" onChange={this.handleChange.bind(this)}/>
-        </div>
-      </div>
-      <div className="form-group row">
-        <label className="col-2 col-form-label">Trading Price</label>
-        <div className="col-10">
-          <input className="form-control" type="integer" id="stock-price-input"/>
-        </div>
-      </div>
-        <button type="submit" class="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
-    </form>
+    </div>
     </div>
     )
   }
