@@ -1,51 +1,70 @@
 class PurchaseStock extends React.Component {
+
+  handleSearch(e){
+    e.preventDefault
+    let searchText = $("#example-search-input").val()
+
+    $.ajax({
+      url: 'http://stocked-back.herokuapp.com/search/stocks/'+searchText,
+      dataType: 'json'
+    }).done(function(response) {
+      $("#stock-ticker-input").val(searchText)
+      $("#stock-price-input").val(response)
+      $("#example-search-input").val("")
+    })
+  }
+
+  handleSubmit(e){
+    e.preventDefault
+  }
+
+  handleChange(e){
+    let stockText = $("#stock-ticker-input").val()
+
+    $.ajax({
+      url: 'http://stocked-back.herokuapp.com/search/stocks/'+stockText,
+      dataType: 'json'
+    }).done(function(response) {
+    total_price = $("#stock-quantity-input").val() * response
+    $("#stock-price-input").val(total_price)
+  })
+}
+
   render(){
 
     return(
     <div>
     <h2 className="sub-header">Purchase Stock</h2>
-      <div className="form-group row">
-        <label for="example-search-input" className="col-2 col-form-label">Search</label>
-        <div className="col-10">
-          <div className="col-6">
-          <input className="form-control" type="search" value="How do I shoot web" id="example-search-input" />
-          </div>
-          <div className="col-6">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </div>
 
-      </div>
       <div className="form-group row">
-        <label for="example-email-input" className="col-2 col-form-label">Email</label>
+        <label className="col-2 col-form-label">Search Stock Tickers</label>
         <div className="col-10">
-          <input className="form-control" type="email" value="bootstrap@example.com" id="example-email-input" />
+          <input className="form-control" type="search" id="example-search-input"/>
+        </div>
+          <button type="submit" class="btn btn-primary" onClick={this.handleSearch.bind(this)}>Submit</button>
+      </div>
+
+    <form>
+      <div className="form-group row">
+        <label className="col-2 col-form-label">Stock</label>
+        <div className="col-10">
+          <input className="form-control" type="string" id="stock-ticker-input"/>
         </div>
       </div>
       <div className="form-group row">
-        <label for="example-url-input" className="col-2 col-form-label">URL</label>
+        <label className="col-2 col-form-label">Quantity</label>
         <div className="col-10">
-          <input className="form-control" type="url" value="https://getbootstrap.com" id="example-url-input" />
+          <input className="form-control" type="integer" id="stock-quantity-input" onChange={this.handleChange.bind(this)}/>
         </div>
       </div>
       <div className="form-group row">
-        <label for="example-tel-input" className="col-2 col-form-label">Telephone</label>
+        <label className="col-2 col-form-label">Trading Price</label>
         <div className="col-10">
-          <input className="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input" />
+          <input className="form-control" type="integer" id="stock-price-input"/>
         </div>
       </div>
-      <div className="form-group row">
-        <label for="example-password-input" className="col-2 col-form-label">Password</label>
-        <div className="col-10">
-          <input className="form-control" type="password" value="hunter2" id="example-password-input" />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label for="example-number-input" className="col-2 col-form-label">Number</label>
-        <div className="col-10">
-          <input className="form-control" type="number" value="42" id="example-number-input" />
-        </div>
-      </div>
+        <button type="submit" class="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
+    </form>
     </div>
     )
   }
