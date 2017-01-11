@@ -94,6 +94,9 @@ class PurchaseStock extends React.Component {
           </div>  
         </div>        
 
+          </div>
+
+
     <div className="col-xs-6 col-sm-8 col-md-8 col-lg-8">
       <div className="table-responsive">
         <table className="table table-striped">
@@ -105,7 +108,6 @@ class PurchaseStock extends React.Component {
         </table>
       </div>
     </div>
-  </div>
     )
   }
 }

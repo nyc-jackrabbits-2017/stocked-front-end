@@ -1,5 +1,5 @@
 class Login extends React.Component {
-  
+
   handleSubmit(event) {
     event.preventDefault();
     const email = this.refs.email;
@@ -8,12 +8,18 @@ class Login extends React.Component {
     $.ajax({
        url: 'http://stocked-back.herokuapp.com/api/sessions',
        method: 'post',
-       data: $(event.target).serialize(),
-       authenticity_token: Functions.getMetaContent("csrf-token")
-    }).done(function(response) {
-      console.log(response)
-    })
+       data: {
+         session: {
+           email: email.value,
+           password: password.value
+         }
 
+       }
+    }).done(function(token) {
+      localStorage.setItem("token", token.auth_token)
+      localStorage.setItem("user_id", token.id)
+      location.href = "http://localhost:3000"
+    }.bind(this))
   }
 
 render() {
@@ -26,7 +32,7 @@ render() {
     <br/>
 
       <div className="form-group">
-        <label className="col-md-4 control-label">E-Mail</label>  
+        <label className="col-md-4 control-label">E-Mail</label>
           <div className="col-md-4 inputGroupContainer">
           <div className="input-group">
               <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
@@ -35,9 +41,9 @@ render() {
         </div>
       </div>
       <br/>
-         
+
       <div className="form-group">
-        <label className="col-md-4 control-label">Password</label>  
+        <label className="col-md-4 control-label">Password</label>
           <div className="col-md-4 inputGroupContainer">
           <div className="input-group">
               <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
@@ -47,7 +53,7 @@ render() {
       </div>
       <br/>
 
-      <div class="form-group">
+      <div className="form-group">
         <label className="col-md-4 control-label"></label>
         <div className="col-md-4">
           <button type="submit" className="btn btn-warning" >Login <span className="glyphicon glyphicon-log-in"></span></button>
