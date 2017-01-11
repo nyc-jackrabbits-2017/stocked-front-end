@@ -6,16 +6,18 @@ class Register extends React.Component {
         const password = this.refs.password;
 
     $.ajax({
-       url: 'http://stocked-back.herokuapp.com/api/users',
+       url: 'http://stocked-back.herokuapp.com/api/users/new',
        method: 'post',
        data: {
            user: {
-             email: this.email.value,
-                password: this.password.value
+              email: email.value,
+              password: password.value
            }
          }
-    }).done(function(response) {
-
+    }).done(function(token) {
+      localStorage.setItem("token", token.auth_token)
+      localStorage.setItem("user_id", token.id)
+      location.href = "http://localhost:3000"
     }.bind(this));
   }
 
